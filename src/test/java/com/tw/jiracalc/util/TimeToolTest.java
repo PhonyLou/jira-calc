@@ -39,8 +39,8 @@ class TimeToolTest {
     @Test
     void test_end_at_Sat() {
         long start = 1579101032811L;
-        long end = 1579360233000L;
-        Double expect = 2d;
+        long end =   1579360233100L;
+        Double expect = 1d;
 
         Double actual = TimeTool.getWorkDay(start, end);
         Assertions.assertEquals(expect, actual);
