@@ -1,4 +1,4 @@
-package com.tw.jiracalc.util;
+package com.tw.jiracalc.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

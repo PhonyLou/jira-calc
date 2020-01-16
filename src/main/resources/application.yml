@@ -1,4 +1,15 @@
 server:
   servlet:
-    context-path: /jira
+    context-path:
   port: 8081
+
+welcome.message: Mkyong
+spring.thymeleaf.cache: false
+
+jira:
+  jql:
+    tianzhou: project = tianzhou AND (assignee in (Liang.Cui, Jingjun.Zhang, Qilin.Lou, Jingtian.Mo, Hongxing.Chen, Yunpeng.Ding) OR assignee was in (Liang.Cui, Jingjun.Zhang, Qilin.Lou, Jingtian.Mo, Hongxing.Chen, Yunpeng.Ding)) ORDER BY priority DESC
+    shenzhou: (assignee in (Jianing.Zheng, Minghao.Tan, Jie.Chen, Yingjuan.Wang, pei.wang2) OR assignee was in (Jianing.Zheng, Minghao.Tan, Jie.Chen, Yingjuan.Wang, pei.wang2)) AND status changed to Complete before now() after -30d  ORDER BY priority DESC
+  stage:
+    tianzhou: READY FOR DEV, In Progress, Blocked, Showcase, Done
+    shenzhou: Backlog, Ready for Dev, In-Progress, Waiting (other dependancy), Complete
