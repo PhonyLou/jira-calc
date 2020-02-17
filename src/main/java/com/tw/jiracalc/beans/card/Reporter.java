@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class Reporter {
-    private String name;
+    private String displayName;
 
 }

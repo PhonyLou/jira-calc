@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class Assignee {
-    private String name;
+    private String displayName;
 }

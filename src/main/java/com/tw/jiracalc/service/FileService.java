@@ -34,11 +34,11 @@ public class FileService {
             if (null == jiraCard.getFields().getAssignee()) {
                 contentBuffer.append("-").append(",");
             } else {
-                contentBuffer.append(jiraCard.getFields().getAssignee().getName()).append(",");
+                contentBuffer.append(jiraCard.getFields().getAssignee().getDisplayName()).append(",");
             }
 
             contentBuffer
-                    .append(jiraCard.getFields().getReporter().getName());
+                    .append(jiraCard.getFields().getReporter().getDisplayName());
             cardStages.forEach(stage -> {
                 final String stageCostStr = getLeadTimes(jiraCard, stage);
                 contentBuffer.append(",").append(stageCostStr);
