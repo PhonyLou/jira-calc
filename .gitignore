@@ -6,3 +6,10 @@ target/*
 *.csv
 release/pid.txt
 release/nohup.out
+.classpath
+.factorypath
+.project
+.settings/
+release/env/*
+!release/env/*.example
+
