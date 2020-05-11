@@ -23,7 +23,7 @@ class CardHttpServiceTest {
                 .when(restTemplate)
                 .exchange(anyString(), eq(HttpMethod.GET), any(HttpEntity.class), eq(JiraCards.class));
 
-        JiraCards jiraCards = cardHttpService.getCards("jql", "jiraApiToken");
+        JiraCards jiraCards = cardHttpService.getCards("jql", "jiraApiToken", "jiraHost");
         Assertions.assertEquals(expect, jiraCards);
     }
 

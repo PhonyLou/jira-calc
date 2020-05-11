@@ -24,11 +24,11 @@ public class JiraService {
         this.cardHttpService = cardHttpService;
     }
 
-    public JiraCards getCards(final String jql, final String jiraApiToken) {
+    public JiraCards getCards(final String jql, final String jiraApiToken, final String jiraHost) {
         logger.info("enrichCardDetail starts");
         final Map<String, CompletableFuture<Map<String, Double>>> cycleTimeMap = new HashMap<>();
-        final JiraCards jiraCards = cardHttpService.getCards(jql, jiraApiToken);
-        jiraCards.issues.forEach(card -> cycleTimeMap.put(card.key, cardHttpService.getCycleTime(card.key, jiraApiToken)));
+        final JiraCards jiraCards = cardHttpService.getCards(jql, jiraApiToken, jiraHost);
+        jiraCards.issues.forEach(card -> cycleTimeMap.put(card.key, cardHttpService.getCycleTime(card.key, jiraApiToken, jiraHost)));
         logger.info("enrichCardDetail ends");
 
         jiraCards.issues.forEach(card -> {

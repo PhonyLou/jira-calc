@@ -33,7 +33,7 @@ public class JiraController {
                 .stream().map(String::trim).collect(Collectors.toList());
 
         return fileService.generateCycleTimeFile(
-                jiraService.getCards(header.get("jql"), header.get("jira-token")),
+                jiraService.getCards(header.get("jql"), header.get("jira-token"), header.get("jira-host")),
                 displayStages);
     }
 

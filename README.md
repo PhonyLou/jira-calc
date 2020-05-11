@@ -67,3 +67,8 @@ jql: project = Ao-li-gei AND (assignee in (Aotian.Long, Liangchen.ye, TieChui.Zh
 ```
 card-stage: Backlog, Analysis, Selected for Development, In-Progress, Showcase, Done
 ```
+
+## How to change jira application?
+Open ```release/env/host.txt``` and change the host url.
+
+By default, we use ```https://arlive.atlassian.net```

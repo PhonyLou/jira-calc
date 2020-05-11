@@ -24,13 +24,13 @@ public class CardHttpService {
         this.restTemplate = restTemplate;
     }
 
-    public JiraCards getCards(final String jql, final String jiraApiToken) {
+    public JiraCards getCards(final String jql, final String jiraApiToken, final String jiraHost) {
         logger.info("JiraService.getCards starts");
         HttpHeaders headers = new HttpHeaders();
         headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
         headers.set("Authorization", jiraApiToken);
 
-        String url = "https://arlive.atlassian.net/rest/api/2/search?jql=" + jql;
+        String url = jiraHost + "/rest/api/2/search?jql=" + jql;
 
         HttpEntity<?> entity = new HttpEntity<>(headers);
         HttpEntity<JiraCards> response = restTemplate.exchange(url, HttpMethod.GET, entity, JiraCards.class);
@@ -40,12 +40,12 @@ public class CardHttpService {
     }
 
     @Async
-    public CompletableFuture<Map<String, Double>> getCycleTime(final String jiraId, final String jiraToken) {
+    public CompletableFuture<Map<String, Double>> getCycleTime(final String jiraId, final String jiraToken, final String jiraHost) {
         HttpHeaders headers = new HttpHeaders();
         headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
         headers.set("Authorization", jiraToken);
 
-        String url = "https://arlive.atlassian.net/rest/internal/2/issue/"+jiraId+"/activityfeed";
+        String url = jiraHost + "/rest/internal/2/issue/"+jiraId+"/activityfeed";
         HttpEntity<?> entity = new HttpEntity<>(headers);
         HttpEntity<JiraCardHistory> response = restTemplate.exchange(url, HttpMethod.GET, entity, JiraCardHistory.class);
 
