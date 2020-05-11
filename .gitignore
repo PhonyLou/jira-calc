@@ -10,6 +10,6 @@ release/nohup.out
 .factorypath
 .project
 .settings/
-#release/env/*
-#!release/env/*.example
+release/env/*
+!release/env/*.example
 
